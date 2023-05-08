@@ -1,0 +1,30 @@
+﻿@model ProductModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Projeto - Sistema de Pedidos</h1>
+</div>
+
+<div class="home__container display-6">
+    <form class="form" asp-action="Create" asp-controller="Product" method="post">
+        <p class="title">Registrar Produto</p>
+        <p class="message">Informe os dados a baixo:</p>
+        <div class="flex">
+            <label for="productName">
+                <input required="" placeholder="Nome do Produto" type="text" asp-for="productName" class="input" id="productName">
+            </label>
+
+            <label for="quantityProduct">
+                <input required="" placeholder="Quantidade do Produto" type="number" asp-for="productQuantity" class="input" id="quantityProduct">
+            </label>
+        </div>
+
+        <label for="valueProduct">
+            <input required="" placeholder="Valor do Produto" type="number" asp-for="productValue" class="input" id="valueProduct">
+        </label>
+        <button class="submit" type="submit" asp-controller="Product" asp-action="Create">Cadastrar Produto</button>
+    </form>
+
+</div>

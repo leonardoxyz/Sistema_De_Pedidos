@@ -1,0 +1,32 @@
+﻿@model ProductModel
+@{
+    ViewData["Title"] = "Editar Produto";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Projeto - Sistema de Pedidos</h1>
+</div>
+
+<div class="home__container display-6">
+    <form class="form" asp-action="Edit" asp-controller="Product" asp-route-id="@Model.Id" method="post">
+        <input type="hidden" asp-for="Id" />
+        <p class="title">Editar Produto</p>
+        <p class="message">Atualize os Produtos a baixo:</p>
+        <div class="flex">
+            <label for="productName">
+                <input placeholder="Nome do Produto" required="" asp-for="productName" type="text" class="input" id="productName">
+            </label>
+
+            <label for="quantityProduct">
+                <input placeholder="Quantidade do Produto" required="" asp-for="productQuantity" type="number" class="input" id="quantityProduct">
+            </label>
+            <label for="valueProduct">
+                @Html.TextBoxFor(model => model.productValue, "{0:F2}", new { @class = "input", @id = "valueProduct" })
+            </label>
+
+        </div>
+        <button class="btn btn-primary" type="submit">Salvar Edição</button>
+        <a class="btn btn-primary" asp-controller="Product" asp-action="Index" asp-route-id="@Model.Id">Voltar</a>
+    </form>
+
+</div>
